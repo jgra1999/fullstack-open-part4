@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 const logger = require('../utils/logger')
+const config = require('../utils/config')
 
-const mongoUrl =
-	'mongodb+srv://helsinski_fullstack:VB2clWRmQoMhEbKK@cluster0.puvyb.mongodb.net/BlogApp?retryWrites=true&w=majority&appName=Cluster0'
+const mongoUrl = config.MONGODB_URI
 
 const blogSchema = new mongoose.Schema({
 	title: String,
