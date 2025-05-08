@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const logger = require('../utils/logger')
 
 const mongoUrl =
 	'mongodb+srv://helsinski_fullstack:VB2clWRmQoMhEbKK@cluster0.puvyb.mongodb.net/BlogApp?retryWrites=true&w=majority&appName=Cluster0'
@@ -23,10 +24,10 @@ mongoose.set('strictQuery', false)
 mongoose
 	.connect(mongoUrl)
 	.then(() => {
-		console.log('connected to MongoDB')
+		logger.info('connected to MongoDB')
 	})
 	.catch((error) => {
-		console.log('error connecting to MongoDB:', error.message)
+		logger.error('error connecting to MongoDB:', error.message)
 	})
 
 const Blog = mongoose.model('Blog', blogSchema)
